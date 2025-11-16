@@ -25,7 +25,7 @@
     margin: 0;
     font-size: 1.5rem;
     font-weight: 600;
-    background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+    background: linear-gradient(135deg, var(--text-primary), var(--text-primary2));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -41,45 +41,6 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.search-input {
-    width: 0;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 20px;
-    background: var(--tag-background);
-    color: var(--text-primary);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    opacity: 0;
-}
-
-.search-container.active .search-input {
-    width: 250px;
-    padding: 0.5rem 2.5rem 0.5rem 1rem;
-    opacity: 1;
-}
-
-.search-btn {
-    background: none;
-    border: none;
-    color: var(--text-primary);
-    cursor: pointer;
-    font-size: 1.1rem;
-    padding: 0.5rem;
-    position: absolute;
-    right: 0;
-    background-color:var(--tag-background);
-    border-radius: 50%;
-
-    transition: transform 0.3s ease;
 }
 
 .search-container.active .search-btn {

@@ -1,4 +1,5 @@
 import './App.css';
+import Navbar from './Components/Navbar';
 import SearchBox from './Components/SearchBox';
 
 function App() {
@@ -8,11 +9,13 @@ function App() {
 
   return (
     <>
-   <h1>Hi This is Arham</h1>
+      <Navbar/>
 
-   
+    <div className='main'>
+      
+      <SearchBox onSearch={onSearch} />;
 
-   <SearchBox onSearch={onSearch} />;
+    </div>
    </>  
   );
 }
