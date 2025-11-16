@@ -1,6 +1,13 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import SearchBox from './Components/SearchBox';
+import night from "./Assets/night.jpg";
+import sunny from "./Assets/sunny.jpg";
+import cloudy from "./Assets/cloudy.jpg";
+import rainy from "./Assets/rainy.jpg";
+import snow from "./Assets/snow.jpg";
+import thunder from "./Assets/thunder.jpg";
+import defaultImg from "./Assets/default.jpg";
 
 import {useState} from 'react';
 import WeatherCard from './Components/WeatherCard';
@@ -27,41 +34,45 @@ function App() {
     const condition = weather.current.condition.text.toLowerCase();
     const isDay = weather.current.is_day === 1;
 
-    if (!isDay) return "night.jpg";
+    if (!isDay) return night;
 
     if (condition.includes("sun") || condition.includes("clear"))
-      return "sunny.jpg";
+      return sunny;
 
     if (condition.includes("cloud"))
-      return "cloudy.jpg";
+      return cloudy;
 
     if (condition.includes("rain") || condition.includes("drizzle"))
-      return "rainy.jpg";
+      return rainy;
 
     if (condition.includes("snow"))
-      return "snow.jpg";
+      return snow;
 
     if (condition.includes("thunder"))
-      return "thunder.jpg";
+      return thunder;
 
-    return "default.jpg";
+    return defaultImg;
   };
 
   return (
     <>
       <Navbar/>
+      <div className='main weather-bg' style={{ 
+        // backgroundImage: `url(./Assets/${getBackgroundImage()})` 
+        backgroundImage: weather
+      ? `url(${getBackgroundImage()})`
+      : "none"
+        
+        }}>
+        
+        <SearchBox onSearch={onSearch} />
+        
+        <div className="content-container">
+          <WeatherCard weather={weather} />
+        </div>
 
-    <div className='main weather-bg' style={{ 
-      backgroundImage: `url(./Assets/${getBackgroundImage()})` }}>
-      
-      <SearchBox onSearch={onSearch} />;
-      
-      <div className="content-container">
-        <WeatherCard weather={weather} />
       </div>
-
-    </div>
-   </>  
+   </> 
   );
 }
 

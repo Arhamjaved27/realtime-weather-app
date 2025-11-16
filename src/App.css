@@ -37,13 +37,14 @@
     flex-direction: column;
     align-items: center;
     padding-top: 10vh;
-    /* background-color: var(--body-background-color); */
-    height: 80vh;
+    
+    background-color: var(--body-background-color);
+    height: 83vh;
+  width: 100%;
+
 }
 
 .weather-bg {
-  width: 100%;
-  min-height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

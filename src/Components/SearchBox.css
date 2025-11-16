@@ -7,7 +7,7 @@
   width: 100%;
   max-width: 740px;
   padding: 12px 18px;
-  background: var();
+  background: var(--background-color);
   border-radius: 50px;
   border: 1px solid var(--tag-background);
   box-shadow: 0 8px 20px var(--box-shadow-color);
