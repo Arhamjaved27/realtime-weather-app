@@ -5,11 +5,12 @@
   justify-content: center;
   gap: 12px;
   width: 100%;
-  max-width: 340px;
+  max-width: 740px;
   padding: 12px 18px;
-  background: #ffffff;
+  background: var();
   border-radius: 50px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border: 1px solid var(--tag-background);
+  box-shadow: 0 8px 20px var(--box-shadow-color);
   transition: 0.4s ease;
   animation: fadeIn 0.6s ease forwards;
   opacity: 0;

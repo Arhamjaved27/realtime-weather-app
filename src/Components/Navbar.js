@@ -23,7 +23,9 @@ function Navbar() {
                 <span className="subtitle">Realtime</span>
             </div>
             
+            <h2 className='welcome' >Welcome to Weather App</h2>
             <div className="header-right">
+
                 <button 
                     className="theme-toggle-btn"
                     onClick={() => setIsDarkMode(!isDarkMode)}

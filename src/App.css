@@ -3,6 +3,7 @@
   --background-color: #fff;
   --body-background-color: #f0f0f0;
   --text-primary: #222;
+  --text-primary1: #00c3ca;
   --text-primary2: #007a7e;
   
   --text-secondary: #777;
@@ -10,7 +11,7 @@
   --border-color: #fff;
   --tag-background: #dddddd;
   --highlight: #00c853;
-  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --box-shadow-color: rgba(0, 0, 0, 0.4);
   --theme-toggle-bg: #f0f0f0;
   --theme-toggle-color: #333;
   --avatar-shadow: rgba(0, 0, 0, 0.4);
@@ -32,7 +33,19 @@
 }
 
 .main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-top: 10vh;
+    background-color: var(--body-background-color);
+    height: 80vh;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
     background-color: var(--background-color);
-    height: 100vh;
 }

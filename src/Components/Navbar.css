@@ -20,12 +20,15 @@
     flex-direction: column;
 }
 
+.welcome{
+    color: var(--text-primary2);
+}
 .logo h1 {
     color: var(--text-primary);
     margin: 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-    background: linear-gradient(135deg, var(--text-primary), var(--text-primary2));
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--text-primary1), var(--text-primary2));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -33,7 +36,7 @@
 
 .logo .subtitle {
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-top: -2px;
 }
 
