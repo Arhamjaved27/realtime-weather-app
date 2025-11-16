@@ -23,18 +23,41 @@ function App() {
 
   };
 
+  const getBackgroundImage = () => {
+    const condition = weather.current.condition.text.toLowerCase();
+    const isDay = weather.current.is_day === 1;
+
+    if (!isDay) return "night.jpg";
+
+    if (condition.includes("sun") || condition.includes("clear"))
+      return "sunny.jpg";
+
+    if (condition.includes("cloud"))
+      return "cloudy.jpg";
+
+    if (condition.includes("rain") || condition.includes("drizzle"))
+      return "rainy.jpg";
+
+    if (condition.includes("snow"))
+      return "snow.jpg";
+
+    if (condition.includes("thunder"))
+      return "thunder.jpg";
+
+    return "default.jpg";
+  };
+
   return (
     <>
       <Navbar/>
 
-    <div className='main'>
+    <div className='main weather-bg' style={{ 
+      backgroundImage: `url(./Assets/${getBackgroundImage()})` }}>
       
       <SearchBox onSearch={onSearch} />;
       
       <div className="content-container">
-
         <WeatherCard weather={weather} />
-
       </div>
 
     </div>
