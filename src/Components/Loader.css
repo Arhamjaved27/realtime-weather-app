@@ -9,7 +9,7 @@
 } */
 
 #wrapper {
-  position: absolute;
+  position: absolute ;
   width: 350px;
   animation: out .3s forwards ease;
   animation-delay: 5s;

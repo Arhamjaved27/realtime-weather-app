@@ -17,9 +17,10 @@ import Loader from './Components/Loader';
 
 function App() {
 
-
-  const [loading, setLoading] = useState(false);
   const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const API_KEY = "66535c2676a8427a996153851251511";
 
   const onSearch = async  (city) => {
@@ -29,21 +30,31 @@ function App() {
     try{
       setLoading(true);
       const result = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`)
+      
+      if (!result.ok) {
+        // Response status not 200
+        if (result.status === 400) {
+          throw new Error("Invalid city name. Please try again.");
+        } else if (result.status === 429) {
+          throw new Error("API limit exceeded. Try again later.");
+        } else {
+          throw new Error("Something went wrong. Try again.");
+        }
+      }
+
       const data = await result.json();
       console.log("Weather Data:", data);
       setWeather(data);
 
       }
     catch(error){
-      console.error("Error fetching weather data:", error);
+       setError(error.message || "Network error. Please check your connection.");
+       setWeather(null); // reset weather on error
     }
     finally{
       setLoading(false);
-      // Any cleanup or final steps can go here
     }
       
-    
-
   };
 
   const getBackgroundImage = () => {
@@ -79,7 +90,7 @@ function App() {
         
         <SearchBox onSearch={onSearch} />
         <div className="content-container">
-          {loading ? <Loader /> : <WeatherCard weather={weather} />}
+          {loading ? <Loader /> : error ? ( <p className="error-message">{error}</p>) : <WeatherCard weather={weather} />}
         </div>
 
       </div>
