@@ -9,7 +9,7 @@
   --text-secondary: #777;
   --text-button:#f8f8f8;
   --border-color: #fff;
-  --tag-background: #dddddd;
+  --tag-background: #002122;
   --highlight: #00c853;
   --box-shadow-color: rgba(0, 0, 0, 0.4);
   --theme-toggle-bg: #f0f0f0;
@@ -54,10 +54,49 @@
 
 .search-container{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
+.quick-cities{
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.city-button {
+   position: relative;
+    padding: 13px 20px;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: var(--tag-background);
+    color: var(--text-button);
+    cursor: pointer;
+    box-shadow: 10px 10px 15px var(--box-shadow-color);
+    transition: background-color 0.3s, color 0.3s;
+    animation: citybtnglow 1.5s infinite;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.city-button:hover {
+    background-color: var(--highlight);
+    color: #fff;
+    transform: scale(1.1);
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes citybtnglow {
+  0% {
+    box-shadow: 0 5px 5px var(--highlight);
+  }
+  50% {
+    box-shadow: 0 5px 10px var(--highlight);
+  }
+  100% {
+    box-shadow: 0 5px 5px var(--highlight);
+  }
+}
+
 .content-container{
     display: flex;
     flex-direction: column;

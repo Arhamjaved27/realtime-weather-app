@@ -91,8 +91,16 @@ function App() {
         
       <div className="search-container">
         <SearchBox onSearch={onSearch} />
+        {/* adding custom cities for quick access */}
+        <div className="quick-cities">
+          {["Sambrial","Sialkot","Islamabad","Lahore","New York", "London", "Tokyo", "Sydney"].map((city) => (
+            <button key={city} onClick={() => onSearch(city)} className="city-button">
+              {city}
+            </button>
+          ))}
+        </div>
       </div>
-      
+
       <div className="content-container">
         {loading ? <Loader /> : error ? ( <p className="error-message">{error}</p>) : <WeatherCard weather={weather} />}
       </div>
