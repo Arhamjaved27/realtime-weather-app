@@ -31,6 +31,7 @@ function App() {
       setLoading(true);
       const result = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`)
       
+      console.log("Fetch result:", result);
       if (!result.ok) {
         // Response status not 200
         if (result.status === 400) {
@@ -45,7 +46,7 @@ function App() {
       const data = await result.json();
       console.log("Weather Data:", data);
       setWeather(data);
-
+      setError("");
       }
     catch(error){
        setError(error.message || "Network error. Please check your connection.");
@@ -88,12 +89,15 @@ function App() {
         backgroundImage: weather ? `url(${getBackgroundImage()})` : "none"
       }}>
         
+      <div className="search-container">
         <SearchBox onSearch={onSearch} />
-        <div className="content-container">
-          {loading ? <Loader /> : error ? ( <p className="error-message">{error}</p>) : <WeatherCard weather={weather} />}
-        </div>
-
       </div>
+      
+      <div className="content-container">
+        {loading ? <Loader /> : error ? ( <p className="error-message">{error}</p>) : <WeatherCard weather={weather} />}
+      </div>
+
+    </div>
    </> 
   );
 }
