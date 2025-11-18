@@ -21,7 +21,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const API_KEY = "66535c2676a8427a996153851251511";
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   const onSearch = async  (city) => {
     console.log("Searching for:", city);
